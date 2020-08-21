@@ -88,8 +88,8 @@ describe('Dashboard', () => {
       fireEvent.click(getByText('Novo Prato'));
     });
 
-    const inputImage = getByPlaceholderText('Cole o link da imagem aqui');
-    const inputName = getByPlaceholderText('Ex: Macarrão à bolonhesa');
+    const inputImage = getByPlaceholderText('Cole o link aqui');
+    const inputName = getByPlaceholderText('Ex: Moda Italiana');
     const inputValue = getByPlaceholderText('Ex: 19.90');
     const inputDescription = getByPlaceholderText('Descrição');
 
