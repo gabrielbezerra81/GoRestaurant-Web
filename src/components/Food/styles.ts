@@ -157,6 +157,24 @@ export const Container = styled.div<IFoodPlateProps>`
   @media (max-width: 450px) {
     section.footer {
       padding: 20px 15px;
+
+      div.icon-container {
+        button {
+          padding: 8px;
+        }
+      }
+
+      div.availability-container {
+        .switch {
+          width: 76px;
+
+          input:checked + .slider:before {
+            -webkit-transform: translateX(20px);
+            -ms-transform: translateX(20px);
+            transform: translateX(20px);
+          }
+        }
+      }
     }
   }
 `;
