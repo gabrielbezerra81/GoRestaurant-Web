@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 import { Form as Unform } from '@unform/web';
 
 export const Form = styled(Unform)`
   padding: 48px 40px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 
   h1 {
     font-weight: 600;
@@ -24,10 +26,16 @@ export const Form = styled(Unform)`
     border: 0;
     background: #39b100;
     color: #fff;
+    transition: background-color 0.2s;
 
     display: flex;
     flex-direction: row;
-    align-items: center;
+    position: relative;
+    /* align-items: center; */
+
+    &:hover {
+      background: ${shade(0.2, '#39b100')};
+    }
 
     .text {
       padding: 16px 24px;
@@ -40,5 +48,9 @@ export const Form = styled(Unform)`
       border-radius: 0 8px 8px 0;
       margin: 0 auto;
     }
+  }
+
+  @media (max-width: 450px) {
+    padding: 36px 30px;
   }
 `;

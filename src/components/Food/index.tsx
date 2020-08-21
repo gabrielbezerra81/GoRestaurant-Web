@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useCallback } from 'react';
 
 import { FiEdit3, FiTrash } from 'react-icons/fi';
@@ -17,22 +18,39 @@ interface IProps {
   food: IFoodPlate;
   handleDelete: (id: number) => {};
   handleEditFood: (food: IFoodPlate) => void;
+  toggleEditModal: (toggle: boolean) => void;
+  handleUpdateFood: (food: IFoodPlate) => Promise<void>;
 }
 
 const Food: React.FC<IProps> = ({
   food,
   handleDelete,
   handleEditFood,
+  toggleEditModal,
+  handleUpdateFood,
 }: IProps) => {
   const [isAvailable, setIsAvailable] = useState(food.available);
 
-  const toggleAvailable = useCallback(async (): Promise<void> => {
-    // TODO UPDATE STATUS (available)
-  }, []);
+  const toggleAvailable = useCallback(
+    async (foodToUpdate: IFoodPlate): Promise<void> => {
+      try {
+        await handleUpdateFood({
+          ...foodToUpdate,
+          available: !foodToUpdate.available,
+        });
+        setIsAvailable(oldValue => !oldValue);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [handleUpdateFood],
+  );
 
   const setEditingFood = useCallback(async () => {
+    toggleEditModal(true);
+    handleEditFood(food);
     // TODO - SET THE ID OF THE CURRENT ITEM TO THE EDITING FOOD AND OPEN MODAL
-  }, []);
+  }, [handleEditFood, food, toggleEditModal]);
 
   return (
     <Container available={isAvailable}>
@@ -75,7 +93,7 @@ const Food: React.FC<IProps> = ({
               id={`available-switch-${food.id}`}
               type="checkbox"
               checked={isAvailable}
-              onChange={toggleAvailable}
+              onChange={() => toggleAvailable(food)}
               data-testid={`change-status-food-${food.id}`}
             />
             <span className="slider" />

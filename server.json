@@ -1,28 +1,36 @@
 {
   "foods": [
     {
-      "id": 1,
-      "name": "Ao molho",
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "name": "Macarrão ao molho",
+      "price": "19,90",
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
-      "price": "19.90",
       "available": true,
-      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png"
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Veggie",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
-      "price": "21.90",
+      "price": "21,90",
       "available": true,
-      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png"
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "id": 2
     },
     {
-      "id": 3,
       "name": "A la Camarón",
       "description": "Macarrão com vegetais de primeira linha e camarão dos 7 mares.",
-      "price": "25.90",
+      "price": "25,90",
       "available": true,
-      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png"
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
+      "id": 3
+    },
+    {
+      "image": "https://s2.glbimg.com/m8xzkTjTE_p4c81beNVuoFtb-Qk=/0x0:672x504/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2013/12/17/16_32_38_969_frango_a_parmegiana_receitadaclau.JPG",
+      "name": "Frango à parmegiana",
+      "price": "19.90",
+      "description": "Filé de frango empanado com molho especial",
+      "available": true,
+      "id": 4
     }
   ]
 }

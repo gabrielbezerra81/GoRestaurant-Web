@@ -25,6 +25,7 @@ export const Container = styled.div<IFoodPlateProps>`
     img {
       pointer-events: none;
       user-select: none;
+      width: 100%;
     }
   }
 
@@ -144,6 +145,18 @@ export const Container = styled.div<IFoodPlateProps>`
           transform: translateX(32px);
         }
       }
+    }
+  }
+
+  @media (min-width: 750px) {
+    header {
+      height: 230px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    section.footer {
+      padding: 20px 15px;
     }
   }
 `;

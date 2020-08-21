@@ -37,18 +37,34 @@ const ModalAddFood: React.FC<IModalProps> = ({
 
   const handleSubmit = useCallback(
     async (data: ICreateFoodData) => {
-      // TODO ADD A NEW FOOD AND CLOSE THE MODAL
+      await handleAddFood(data);
+      setIsOpen();
     },
     [handleAddFood, setIsOpen],
   );
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form
+        ref={formRef}
+        initialData={{
+          name: 'Frango à parmegiana',
+          price: '19.90',
+          description: 'Filé de frango empanado com molho especial',
+          image:
+            'https://s2.glbimg.com/m8xzkTjTE_p4c81beNVuoFtb-Qk=/0x0:672x504/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2013/12/17/16_32_38_969_frango_a_parmegiana_receitadaclau.JPG',
+        }}
+        onSubmit={handleSubmit}
+      >
         <h1>Novo Prato</h1>
-        <Input name="image" placeholder="Cole o link aqui" />
+        <Input name="image" placeholder="Cole o link da imagem aqui" />
 
-        <Input name="name" placeholder="Ex: Moda Italiana" />
+        {/* <input
+          type="text"
+          value="https://s2.glbimg.com/m8xzkTjTE_p4c81beNVuoFtb-Qk=/0x0:672x504/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2013/12/17/16_32_38_969_frango_a_parmegiana_receitadaclau.JPG"
+        /> */}
+
+        <Input name="name" placeholder="Ex: Macarrão à bolonhesa" />
         <Input name="price" placeholder="Ex: 19.90" />
 
         <Input name="description" placeholder="Descrição" />
