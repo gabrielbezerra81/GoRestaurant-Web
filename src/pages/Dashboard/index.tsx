@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import Header from '../../components/Header';
 
@@ -33,37 +33,39 @@ const Dashboard: React.FC = () => {
     loadFoods();
   }, []);
 
-  async function handleAddFood(
-    food: Omit<IFoodPlate, 'id' | 'available'>,
-  ): Promise<void> {
-    try {
-      // TODO ADD A NEW FOOD PLATE TO THE API
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const handleAddFood = useCallback(
+    async (food: Omit<IFoodPlate, 'id' | 'available'>): Promise<void> => {
+      try {
+        // TODO ADD A NEW FOOD PLATE TO THE API
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [],
+  );
 
-  async function handleUpdateFood(
-    food: Omit<IFoodPlate, 'id' | 'available'>,
-  ): Promise<void> {
-    // TODO UPDATE A FOOD PLATE ON THE API
-  }
+  const handleUpdateFood = useCallback(
+    async (food: Omit<IFoodPlate, 'id' | 'available'>): Promise<void> => {
+      // TODO UPDATE A FOOD PLATE ON THE API
+    },
+    [],
+  );
 
-  async function handleDeleteFood(id: number): Promise<void> {
+  const handleDeleteFood = useCallback(async (id: number): Promise<void> => {
     // TODO DELETE A FOOD PLATE FROM THE API
-  }
+  }, []);
 
-  function toggleModal(): void {
-    setModalOpen(!modalOpen);
-  }
+  const toggleModal = useCallback((): void => {
+    setModalOpen(oldValue => !oldValue);
+  }, []);
 
-  function toggleEditModal(): void {
-    setEditModalOpen(!editModalOpen);
-  }
+  const toggleEditModal = useCallback((): void => {
+    setEditModalOpen(oldValue => !oldValue);
+  }, []);
 
-  function handleEditFood(food: IFoodPlate): void {
+  const handleEditFood = useCallback((food: IFoodPlate): void => {
     // TODO SET THE CURRENT EDITING FOOD ID IN THE STATE
-  }
+  }, []);
 
   return (
     <>
